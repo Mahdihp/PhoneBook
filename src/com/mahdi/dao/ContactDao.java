@@ -1,7 +1,6 @@
 package com.mahdi.dao;
 
 import com.mahdi.entity.Contact;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

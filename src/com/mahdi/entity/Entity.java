@@ -2,7 +2,10 @@ package com.mahdi.entity;
 
 public abstract class Entity<I> {
 
-    private I id;
+    protected I id;
+
+    public Entity() {
+    }
 
     public Entity(I id) {
         this.id = id;

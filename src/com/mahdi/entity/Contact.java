@@ -8,6 +8,9 @@ public class Contact extends Entity<Integer> {
     private String mobile;
     private String email;
 
+    public Contact() {
+    }
+
     public Contact(Integer id, String name, String address, String phone, String mobile, String email) {
         super(id);
         this.name = name;
