@@ -5,6 +5,7 @@ import com.mahdi.entity.Contact;
 import com.mahdi.entity.Entity;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public abstract class Manager<T extends Entity<I>, I> {
 
@@ -16,5 +17,21 @@ public abstract class Manager<T extends Entity<I>, I> {
 
     public T read(I id) throws SQLException {
         return dao.read(id);
+    }
+
+    public void update(T entity) throws SQLException {
+        dao.update(entity);
+    }
+
+    public void delete(I id) throws SQLException {
+        dao.delete(id);
+    }
+
+    public List<T> readAll() throws SQLException {
+        return dao.readAll();
+    }
+
+    public void clear() throws SQLException {
+        dao.clear();
     }
 }
