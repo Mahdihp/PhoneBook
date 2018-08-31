@@ -4,15 +4,18 @@ import com.mahdi.manager.ContactManager;
 
 public class Main {
 
-    ContactManager contactManager;
+    public static void main(String[] args) {
+        ContactManager contactManager;
 
-    {
-        try {
-            contactManager = new ContactManager();
-//            contactManager.add();
-        } catch (Exception e) {
-            e.printStackTrace();
+        {
+            try {
+                contactManager = new ContactManager();
+                System.out.println(contactManager.readAll());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
+
 
 }
