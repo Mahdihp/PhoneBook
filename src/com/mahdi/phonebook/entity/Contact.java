@@ -1,4 +1,4 @@
-package com.mahdi.entity;
+package com.mahdi.phonebook.entity;
 
 public class Contact extends Entity<Integer> {
 

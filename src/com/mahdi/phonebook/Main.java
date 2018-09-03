@@ -1,6 +1,6 @@
-package com.mahdi;
+package com.mahdi.phonebook;
 
-import com.mahdi.manager.ContactManager;
+import com.mahdi.phonebook.manager.ContactManager;
 
 public class Main {
 

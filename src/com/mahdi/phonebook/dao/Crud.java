@@ -1,7 +1,7 @@
-package com.mahdi.dao;
+package com.mahdi.phonebook.dao;
 
 
-import com.mahdi.entity.Entity;
+import com.mahdi.phonebook.entity.Entity;
 
 import java.sql.SQLException;
 import java.util.List;

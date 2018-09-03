@@ -1,16 +1,13 @@
-package com.mahdi.manager;
+package com.mahdi.phonebook.manager;
 
-import com.mahdi.dao.ContactDao;
-import com.mahdi.entity.Contact;
-
-import java.sql.SQLException;
+import com.mahdi.phonebook.dao.ContactDao;
+import com.mahdi.phonebook.entity.Contact;
 
 public class ContactManager extends Manager<Contact, Integer> {
 
     public ContactManager() throws Exception {
         dao = new ContactDao();
     }
-
 
 
 }

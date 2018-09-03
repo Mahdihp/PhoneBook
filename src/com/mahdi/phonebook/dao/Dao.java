@@ -1,13 +1,14 @@
-package com.mahdi.dao;
+package com.mahdi.phonebook.dao;
 
-import com.mahdi.entity.Entity;
+import com.mahdi.phonebook.entity.Entity;
+import com.mahdi.phonebook.util.Constans;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public abstract class Dao<T extends Entity<I>, I> implements Crud<T, I> {
 
-    private static String url = "jdbc:mysql://localhost:3306/phonebook?user=root&password=";
+    private static String url = "jdbc:mysql://" + Constans.KEY_SERVER_NAME + ":" + Constans.KEY_SERVER_PORT + "/" + Constans.KEY_DB_NAME + "?user=" + Constans.KEY_DB_USERNAME + "&password=" + Constans.KEY_DB_PASSWORD;
     protected static Connection connection = null;
 
     public Dao() throws Exception {

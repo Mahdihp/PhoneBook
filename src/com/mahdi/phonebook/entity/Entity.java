@@ -1,4 +1,4 @@
-package com.mahdi.entity;
+package com.mahdi.phonebook.entity;
 
 public abstract class Entity<I> {
 
