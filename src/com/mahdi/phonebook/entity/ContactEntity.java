@@ -1,6 +1,6 @@
 package com.mahdi.phonebook.entity;
 
-public class Contact extends Entity<Integer> {
+public class ContactEntity extends Entity<Integer> {
 
     private String name;
     private String address;
@@ -8,10 +8,10 @@ public class Contact extends Entity<Integer> {
     private String mobile;
     private String email;
 
-    public Contact() {
+    public ContactEntity() {
     }
 
-    public Contact(Integer id, String name, String address, String phone, String mobile, String email) {
+    public ContactEntity(Integer id, String name, String address, String phone, String mobile, String email) {
         super(id);
         this.name = name;
         this.address = address;
@@ -62,7 +62,7 @@ public class Contact extends Entity<Integer> {
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return "ContactEntity{" +
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +

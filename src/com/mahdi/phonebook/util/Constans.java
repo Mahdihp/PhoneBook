@@ -17,7 +17,7 @@ public class Constans {
     public static final String KEY_COL_MOBILE = "MOBILE";
     public static final String KEY_COL_EMAIL = "EMAIL";
 
-    public static final String KEY_RESOURCE = "phonebook";
+    public static final String KEY_RESOURCE = "contactservice";
     public static final String KEY_RESOURCE_ADD = "add";
     public static final String KEY_RESOURCE_CONTACTS = "contacts";
     public static final String KEY_RESOURCE_UPDATE = "update";

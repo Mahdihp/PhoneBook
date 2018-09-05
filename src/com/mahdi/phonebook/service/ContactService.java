@@ -1,7 +1,7 @@
 package com.mahdi.phonebook.service;
 
 
-import com.mahdi.phonebook.entity.Contact;
+import com.mahdi.phonebook.entity.ContactEntity;
 import com.mahdi.phonebook.entity.MessageBody;
 import com.mahdi.phonebook.manager.ContactManager;
 import com.mahdi.phonebook.util.Constans;
@@ -11,11 +11,11 @@ import javax.ws.rs.core.MediaType;
 import java.sql.SQLException;
 
 @Path("/" + Constans.KEY_RESOURCE)
-public class PhoneBook {
+public class ContactService {
 
     ContactManager contactManager;
 
-    public PhoneBook() {
+    public ContactService() {
         try {
             this.contactManager = new ContactManager();
         } catch (Exception e) {
@@ -27,13 +27,13 @@ public class PhoneBook {
     @Path("/" + Constans.KEY_RESOURCE_ADD)
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public MessageBody add(Contact contact) {
+    public MessageBody add(ContactEntity contactEntity) {
         try {
-            contactManager.add(contact);
+            contactManager.add(contactEntity);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new MessageBody(200, "Insert Contact Success.");
+        return new MessageBody(200, "Insert ContactEntity Success.");
     }
 
     @GET
@@ -41,7 +41,7 @@ public class PhoneBook {
     @Produces(MediaType.APPLICATION_JSON)
     public MessageBody readAll() {
         try {
-            return new MessageBody(200, "Insert Contact Success.", contactManager.readAll());
+            return new MessageBody(200, "Insert ContactEntity Success.", contactManager.readAll());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -52,13 +52,13 @@ public class PhoneBook {
     @Path("/" + Constans.KEY_RESOURCE_UPDATE)
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public MessageBody update(Contact contact) {
+    public MessageBody update(ContactEntity contactEntity) {
         try {
-            contactManager.update(contact);
+            contactManager.update(contactEntity);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new MessageBody(200, "Update Contact Success.");
+        return new MessageBody(200, "Update ContactEntity Success.");
 
     }
 
@@ -71,7 +71,7 @@ public class PhoneBook {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new MessageBody(200, "Delete Contact Success.");
+        return new MessageBody(200, "Delete ContactEntity Success.");
 
     }
 
@@ -81,7 +81,7 @@ public class PhoneBook {
     public MessageBody findById(@QueryParam("id") String id) {
         try {
             int contactId = Integer.valueOf(id);
-            return new MessageBody(200, "Info Contact.",
+            return new MessageBody(200, "Info ContactEntity.",
                     contactManager.read(contactId));
         } catch (SQLException e) {
             e.printStackTrace();

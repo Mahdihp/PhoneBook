@@ -1,7 +1,6 @@
 package com.mahdi.phonebook.entity;
 
 import com.google.gson.Gson;
-import com.sun.istack.internal.Nullable;
 
 import java.util.List;
 
@@ -9,8 +8,8 @@ public class MessageBody {
 
     private int statusCode;
     private String message;
-    private List<Contact> data;
-    private Contact contactData;
+    private List<ContactEntity> data;
+    private ContactEntity contactEntityData;
     public MessageBody() {
     }
 
@@ -19,16 +18,16 @@ public class MessageBody {
         this.message = message;
     }
 
-    public MessageBody(int statusCode, String message, List<Contact> data) {
+    public MessageBody(int statusCode, String message, List<ContactEntity> data) {
         this.statusCode = statusCode;
         this.message = message;
         this.data = data;
     }
 
-    public MessageBody(int statusCode, String message, Contact contactData) {
+    public MessageBody(int statusCode, String message, ContactEntity contactEntityData) {
         this.statusCode = statusCode;
         this.message = message;
-        this.contactData = contactData;
+        this.contactEntityData = contactEntityData;
     }
 
     public String toJson(){
@@ -52,20 +51,20 @@ public class MessageBody {
         this.message = message;
     }
 
-    public List<Contact> getData() {
+    public List<ContactEntity> getData() {
         return data;
     }
 
-    public void setData(List<Contact> data) {
+    public void setData(List<ContactEntity> data) {
         this.data = data;
     }
 
-    public Contact getContactData() {
-        return contactData;
+    public ContactEntity getContactEntityData() {
+        return contactEntityData;
     }
 
-    public void setContactData(Contact contactData) {
-        this.contactData = contactData;
+    public void setContactEntityData(ContactEntity contactEntityData) {
+        this.contactEntityData = contactEntityData;
     }
 
     @Override
@@ -74,7 +73,7 @@ public class MessageBody {
                 "statusCode=" + statusCode +
                 ", message='" + message + '\'' +
                 ", data=" + data +
-                ", contactData=" + contactData +
+                ", contactEntityData=" + contactEntityData +
                 '}';
     }
 }

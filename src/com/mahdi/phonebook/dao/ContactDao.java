@@ -1,6 +1,6 @@
 package com.mahdi.phonebook.dao;
 
-import com.mahdi.phonebook.entity.Contact;
+import com.mahdi.phonebook.entity.ContactEntity;
 import com.mahdi.phonebook.util.Constans;
 
 import java.sql.PreparedStatement;
@@ -9,14 +9,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactDao extends Dao<Contact, Integer> {
+public class ContactDao extends Dao<ContactEntity, Integer> {
 
     public ContactDao() throws Exception {
 
     }
 
     @Override
-    public void create(Contact entity) throws SQLException {
+    public void create(ContactEntity entity) throws SQLException {
         String sql = "INSERT INTO " + Constans.KEY_TABLE_NAME +
                 "(" + Constans.KEY_COL_NAME +
                 "," + Constans.KEY_COL_ADDRESS +
@@ -34,11 +34,11 @@ public class ContactDao extends Dao<Contact, Integer> {
     }
 
     @Override
-    public Contact read(Integer contactId) throws SQLException {
+    public ContactEntity read(Integer contactId) throws SQLException {
         String sql = "SELECT * FROM " + Constans.KEY_TABLE_NAME + " WHERE " + Constans.KEY_COL_ID + "=?;";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, contactId);
-        Contact contact = null;
+        ContactEntity contactEntity = null;
         try (ResultSet rs = ps.executeQuery()) {
             rs.last();
             int size = rs.getRow();
@@ -51,14 +51,14 @@ public class ContactDao extends Dao<Contact, Integer> {
                 String phone = rs.getString(Constans.KEY_COL_PHONE);
                 String mobile = rs.getString(Constans.KEY_COL_MOBILE);
                 String email = rs.getString(Constans.KEY_COL_EMAIL);
-                contact = new Contact(id, name, address, phone, mobile, email);
+                contactEntity = new ContactEntity(id, name, address, phone, mobile, email);
             }
         }
-        return contact;
+        return contactEntity;
     }
 
     @Override
-    public void update(Contact entity) throws SQLException {
+    public void update(ContactEntity entity) throws SQLException {
         String sql = "UPDATE " +
                 Constans.KEY_TABLE_NAME +
                 " SET " + Constans.KEY_COL_NAME +
@@ -86,8 +86,8 @@ public class ContactDao extends Dao<Contact, Integer> {
     }
 
     @Override
-    public List<Contact> readAll() throws SQLException {
-        List<Contact> contactList = new ArrayList<>();
+    public List<ContactEntity> readAll() throws SQLException {
+        List<ContactEntity> contactEntityList = new ArrayList<>();
         String sql = "SELECT * FROM " + Constans.KEY_TABLE_NAME;
         PreparedStatement ps = connection.prepareStatement(sql);
         try (ResultSet rs = ps.executeQuery()) {
@@ -102,11 +102,11 @@ public class ContactDao extends Dao<Contact, Integer> {
                     String phone = rs.getString(Constans.KEY_COL_PHONE);
                     String mobile = rs.getString(Constans.KEY_COL_MOBILE);
                     String email = rs.getString(Constans.KEY_COL_EMAIL);
-                    contactList.add(new Contact(id, name, address, phone, mobile, email));
+                    contactEntityList.add(new ContactEntity(id, name, address, phone, mobile, email));
                 }
             }
         }
-        return contactList;
+        return contactEntityList;
     }
 
     @Override
