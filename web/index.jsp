@@ -10,11 +10,11 @@
 <head>
     <link rel="stylesheet" href="./static/css/materialize.css">
     <script src="./static/js/materialize.js"></script>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <title>Phone Book</title>
 </head>
-<body>
+<body onload="loadContact()">
 
 <style>
     body {
@@ -43,6 +43,8 @@
     </div>
 </div>
 </div>
-<script src="static/">
+<script src="static/js/home.js">
+
+</script>
 </body>
 </html>
