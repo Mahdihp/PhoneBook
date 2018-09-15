@@ -23,6 +23,14 @@ public class ContactService {
         }
     }
 
+    @GET
+    @Path("/read1")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ContactEntity read2(@QueryParam("id") String id) {
+        return null;
+    }
+
+
     @POST
     @Path("/" + Constans.KEY_RESOURCE_ADD)
     @Produces(MediaType.APPLICATION_JSON)
