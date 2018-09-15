@@ -3,6 +3,7 @@ package com.mahdi.phonebook.dao;
 import com.mahdi.phonebook.entity.Entity;
 import com.mahdi.phonebook.util.Constans;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,15 +19,13 @@ public abstract class Dao<T extends Entity<I>, I> implements Crud<T, I> {
 
     public Dao() throws Exception {
 
-//        try {
-//
-//            config.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("config.properties"));
-//
-//        } catch (IOException err) {
-//            err.printStackTrace();
-//        }
-//        String property = config.getProperty("server");
-//        System.out.println("Log-------------"+property);
+        try {
+            config.load(new FileInputStream("/home/mahdi/IdeaProjects/PhoneBook/web/WEB-INF/config.properties"));
+        } catch (IOException err) {
+            err.printStackTrace();
+        }
+        String property = config.getProperty("server");
+        System.out.println("Log-------------" + property);
 
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         connection = DriverManager.getConnection(url);
