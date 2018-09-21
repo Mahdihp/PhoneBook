@@ -15,6 +15,31 @@ public class ContactDao extends Dao<ContactEntity, Integer> {
 
     }
 
+    public List<ContactEntity> findByName(String contactName) throws SQLException {
+        List<ContactEntity> contactEntityList = new ArrayList<>();
+        String sql = "SELECT * FROM " + Constans.KEY_TABLE_NAME + " WHERE " + Constans.KEY_COL_NAME + " LIKE ?;";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, contactName);
+        try (ResultSet rs = ps.executeQuery()) {
+            rs.last();
+            int size = rs.getRow();
+            if (size > 0) {
+                rs.beforeFirst();
+                while (rs.next()) {
+                    int id = rs.getInt(Constans.KEY_COL_ID);
+                    String name = rs.getString(Constans.KEY_COL_NAME);
+                    String address = rs.getString(Constans.KEY_COL_ADDRESS);
+                    String phone = rs.getString(Constans.KEY_COL_PHONE);
+                    String mobile = rs.getString(Constans.KEY_COL_MOBILE);
+                    String email = rs.getString(Constans.KEY_COL_EMAIL);
+                    contactEntityList.add(new ContactEntity(id, name, address, phone, mobile, email));
+                }
+            }
+        }
+        return contactEntityList;
+    }
+
+
     @Override
     public void create(ContactEntity entity) throws SQLException {
         String sql = "INSERT INTO " + Constans.KEY_TABLE_NAME +

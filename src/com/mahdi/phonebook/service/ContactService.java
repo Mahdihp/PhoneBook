@@ -97,5 +97,18 @@ public class ContactService {
         return null;
     }
 
+    @GET
+    @Path("/" + Constans.KEY_RESOURCE_CONTACT_NAME)
+    @Produces(MediaType.APPLICATION_JSON)
+    public MessageBody findByName(@QueryParam("name") String name) {
+        try {
+            return new MessageBody(200, "Info ContactEntity.",
+                    contactManager.findByName(name));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }

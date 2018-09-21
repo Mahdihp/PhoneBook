@@ -10,6 +10,8 @@ public abstract class Manager<T extends Entity<I>, I> {
 
     protected Dao<T, I> dao;
 
+
+
     public void add(T entity) throws SQLException {
         dao.create(entity);
     }

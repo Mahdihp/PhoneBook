@@ -23,5 +23,6 @@ public class Constans {
     public static final String KEY_RESOURCE_UPDATE = "update";
     public static final String KEY_RESOURCE_DELETE = "delete";
     public static final String KEY_RESOURCE_CONTACT = "contact";
+    public static final String KEY_RESOURCE_CONTACT_NAME = "contactName";
     public static final String KEY_RESOURCE_PARAMS = "id";
 }
